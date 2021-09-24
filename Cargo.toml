@@ -1,0 +1,21 @@
+[package]
+name = "webview-js"
+version = "0.1.0"
+description = "Native webview bindings for Node.js"
+authors = ["DevAndromeda"]
+license = "MIT"
+edition = "2018"
+exclude = ["index.node"]
+
+[lib]
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+web-view = { version = "0.7" }
+
+[dependencies.neon]
+version = "0.9"
+default-features = false
+features = ["napi-6"]
