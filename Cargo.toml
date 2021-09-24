@@ -1,5 +1,5 @@
 [package]
-name = "webviewjs"
+name = "webview-native"
 version = "0.1.0"
 description = "Native webview bindings for Node.js"
 authors = ["DevAndromeda"]
