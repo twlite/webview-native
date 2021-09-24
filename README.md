@@ -1,16 +1,16 @@
-# webview-js
+# webviewjs
 
 Native webview bindings for Node.js
 
 
-## Installing webview-js
+## Installing webviewjs
 
-Installing webview-js requires a [supported version of Node and Rust](https://github.com/neon-bindings/neon#platform-support).
+Installing webviewjs requires a [supported version of Node and Rust](https://github.com/neon-bindings/neon#platform-support).
 
 You can install the project with npm. In the project directory, run:
 
 ```sh
-$ npm install webview-js
+$ npm install webviewjs
 ```
 
 This fully installs the project, including installing any dependencies and running the build.
@@ -18,7 +18,7 @@ This fully installs the project, including installing any dependencies and runni
 ## Quick Example
 
 ```js
-const WebView = require("webview-js");
+const WebView = require("webviewjs");
 const webview = new WebView({
     title: "Hello World",
     content: `
@@ -39,7 +39,7 @@ const webview = new WebView({
             </style>
         </head>
         <body>
-            <h1>Hello from WebView-JS</h1>
+            <h1>Hello from webviewjs</h1>
         </body>
     </html>
     `

@@ -1,4 +1,4 @@
-declare module "webview-js" {
+declare module "webviewjs" {
     interface WebViewInitOptions {
         /** The Window title */
         title?: string;

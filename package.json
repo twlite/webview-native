@@ -1,12 +1,12 @@
 {
-  "name": "webview-js",
+  "name": "webviewjs",
   "version": "1.0.0",
   "description": "Native webview bindings for Node.js",
   "main": "lib/index.js",
   "types": "typings/index.d.ts",
   "files": ["dist", "lib", "typings"],
   "scripts": {
-    "build": "cargo-cp-artifact -nc dist/webviewjs.node -- cargo build --message-format=json-render-diagnostics",
+    "build": "npx cargo-cp-artifact -nc dist/webviewjs.node -- cargo build --message-format=json-render-diagnostics",
     "build-debug": "npm run build --",
     "build-release": "npm run build -- --release",
     "install": "npm run build-release",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevSnowflake/webview-js.git"
+    "url": "git+https://github.com/DevSnowflake/webviewjs.git"
   },
   "keywords": [
     "webview",
@@ -30,7 +30,7 @@
     "api"
   ],
   "bugs": {
-    "url": "https://github.com/DevSnowflake/webview-js/issues"
+    "url": "https://github.com/DevSnowflake/webviewjs/issues"
   },
-  "homepage": "https://github.com/DevSnowflake/webview-js#readme"
+  "homepage": "https://github.com/DevSnowflake/webviewjs#readme"
 }
