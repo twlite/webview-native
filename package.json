@@ -1,6 +1,6 @@
 {
   "name": "webview-native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Native webview bindings for Node.js",
   "main": "lib/index.js",
   "types": "typings/index.d.ts",
