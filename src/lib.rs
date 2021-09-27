@@ -7,14 +7,21 @@ fn create_window(mut cx: FunctionContext) -> JsResult<JsUndefined> {
     let source = cx.argument::<JsString>(2)?.value(&mut cx);
     let width = cx.argument::<JsNumber>(3)?.value(&mut cx);
     let height = cx.argument::<JsNumber>(4)?.value(&mut cx);
+    let use_debug = cx.argument::<JsBoolean>(5)?.value(&mut cx);
 
     web_view::builder()
         .title(&title)
         .content(if is_url { Content::Url(&source) } else { Content::Html(&source) })
         .size(width.round().rem_euclid(2f64.powi(32)) as u32 as i32, height.round().rem_euclid(2f64.powi(32)) as u32 as i32)
-        .debug(true)
+        .debug(use_debug)
         .user_data(())
-        .invoke_handler(|_webview, _arg| Ok(()))
+        .invoke_handler(|webview, arg| {
+            match arg {
+                "closeWindow" => webview.exit(),
+                _ => ()
+            }
+            Ok(())
+        })
         .run()
         .unwrap();
 

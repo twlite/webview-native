@@ -4,7 +4,7 @@
   "description": "Native webview bindings for Node.js",
   "main": "lib/index.js",
   "types": "typings/index.d.ts",
-  "files": ["dist", "lib", "typings", "Cargo.toml", "src"],
+  "files": ["lib", "typings", "Cargo.toml", "src"],
   "scripts": {
     "build": "npx cargo-cp-artifact -nc dist/webview-native.node -- cargo build --message-format=json-render-diagnostics",
     "build-debug": "npm run build --",

@@ -10,6 +10,8 @@ declare module "webview-native" {
         height?: number;
         /** window width */
         width?: number;
+        /** Debug mode */
+        debug?: boolean;
     }
 
     class WebView {

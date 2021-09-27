@@ -40,6 +40,10 @@ const webview = new WebView({
         </head>
         <body>
             <h1>Hello from webview-native</h1>
+            <button onclick="external.invoke('closeWindow')">Close Window</button>
+            <script>
+                alert("Hello World");
+            </script>
         </body>
     </html>
     `
@@ -49,4 +53,4 @@ webview.createWindow();
 ```
 
 ### Preview
-![](https://i.imgur.com/n7y13AA.png)
+![](https://i.imgur.com/48WYcQw.png)
