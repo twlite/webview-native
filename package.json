@@ -1,36 +1,67 @@
 {
   "name": "webview-native",
-  "version": "1.0.3",
-  "description": "Native webview bindings for Node.js",
+  "version": "2.0.0",
   "main": "lib/index.js",
-  "types": "typings/index.d.ts",
-  "files": ["lib", "typings", "Cargo.toml", "src"],
-  "scripts": {
-    "build": "npx cargo-cp-artifact -nc dist/webview-native.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "npm run build --",
-    "build-release": "npm run build -- --release",
-    "install": "npm run build-release",
-    "test": "cargo test",
-    "dev": "cd test && node index.js"
+  "types": "lib/index.d.ts",
+  "description": "Native webview bindings for node",
+  "napi": {
+    "name": "webview-native",
+    "triples": {
+      "additional": [
+        "aarch64-apple-darwin",
+        "aarch64-linux-android",
+        "aarch64-unknown-linux-gnu",
+        "aarch64-unknown-linux-musl",
+        "aarch64-pc-windows-msvc",
+        "armv7-unknown-linux-gnueabihf",
+        "x86_64-unknown-linux-musl",
+        "x86_64-unknown-freebsd",
+        "i686-pc-windows-msvc",
+        "armv7-linux-androideabi"
+      ]
+    }
   },
-  "author": "DevAndromeda",
   "license": "MIT",
-  "devDependencies": {
-    "cargo-cp-artifact": "^0.1"
+  "ava": {
+    "timeout": "3m"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release --dts binding.d.ts --js ./lib/binding.js ./lib",
+    "build:debug": "napi build --platform --dts binding.d.ts --js ./lib/binding.js ./lib",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "ava",
+    "version": "napi version",
+    "format": "prettier --write {lib,__test__}/**/*.{js,mjs,ts}"
+  },
+  "packageManager": "yarn@3.2.4",
+  "directories": {
+    "lib": "lib"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevSnowflake/webview-native.git"
+    "url": "git+https://github.com/archaeopteryx1/webview-native.git"
   },
   "keywords": [
     "webview",
-    "node",
-    "binding",
     "native",
-    "api"
+    "napi",
+    "javascript",
+    "api",
+    "electron",
+    "browser"
   ],
+  "author": "Archaeopteryx1",
   "bugs": {
-    "url": "https://github.com/DevSnowflake/webview-native/issues"
+    "url": "https://github.com/archaeopteryx1/webview-native/issues"
   },
-  "homepage": "https://github.com/DevSnowflake/webview-native#readme"
+  "homepage": "https://github.com/archaeopteryx1/webview-native#readme",
+  "devDependencies": {
+    "@napi-rs/cli": "^2.12.0",
+    "ava": "^4.3.3",
+    "prettier": "^2.7.1"
+  }
 }
